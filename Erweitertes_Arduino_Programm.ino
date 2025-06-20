@@ -78,21 +78,21 @@ void loop() {
 
     // Konkrete Warnmeldungen
     if (temp > 17.0) {
-      Serial.println("ALARM: Temperatur >17°C! Proben kühlen oder stoppen!");
+      Serial.println("ALARM: Temperatur >17°C! Proben sofort kühlen!");
     } else if (temp > 10.0) {
       Serial.println("Warnung: Temperatur >10°C! Beobachten und ggf. kühlen.");
     }
 
     if (hum > 40.0) {
-      Serial.println("ALARM: Feuchte >40%! Proben trocknen oder Transport prüfen!");
+      Serial.println("ALARM: Luftfeuchtigkeit >40%! Proben sofort trocknen!");
     } else if (hum > 30.0) {
-      Serial.println("Warnung: Feuchte >30%! Feuchte beobachten.");
+      Serial.println("Warnung: Feuchte >30%! Beobachten und ggf. trocknen.");
     }
 
     if (lichtWert > 100) {
-      Serial.println("ALARM: Licht >100lx! Proben vor Licht schützen!");
+      Serial.println("ALARM: Lichtintensität >100lx! Proben vor Licht schützen!");
     } else if (lichtWert > 70) {
-      Serial.println("Warnung: Licht >70lx! Licht abschirmen.");
+      Serial.println("Warnung: Lichtintensität >70lx! Beobachten und ggf. abschirmen.");
     }
 
     Serial.println(); 
