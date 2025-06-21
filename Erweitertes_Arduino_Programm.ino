@@ -56,6 +56,7 @@ void setup() {
 }
 
 void loop() {
+
   unsigned long jetztMin    = millis() / 60000;             // Minuten seit Start
   unsigned long vergangenMin = jetztMin - startZeitMin;     // Minuten seit Beginn
   long restMinuten           = transportDauerMin - vergangenMin;
@@ -122,10 +123,18 @@ void loop() {
   digitalWrite(ledGelb,  (grenzwert && !kritisch));
   digitalWrite(ledRot,   kritisch);
 
-  // Türüberwachung über Taster
+    // Türüberwachung über Taster
   bool tasterGedrueckt = (digitalRead(tasterPin) == LOW);
   if (!tasterGedrueckt) {
     tone(piezoPin, 1000, 100);      // Alarmsignal bei offenem Behälter
+
+    // LCD-Warnung
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Warnung:");
+    lcd.setCursor(0, 1);
+    lcd.print("Behaelter offen!");
+
   } else {
     noTone(piezoPin);
   }
