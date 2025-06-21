@@ -71,7 +71,7 @@ void loop() {
     hum       = dht.readHumidity();
     lichtWert = analogRead(lichtPin);
 
-    // Ausgabe an Serial Plotter/Monitor (CSV‑Format)
+    // Ausgabe an Serial Monitor 
     Serial.print("Zeit:" + String(vergangenMin) + "min, "); 
     Serial.print("Temperatur:" + String(temp,1) + "°C, ");
     Serial.print("Luftfeuchtigkeit:" + String(hum, 0) + "%, ");
@@ -102,7 +102,6 @@ void loop() {
   // LCD-Ausgabe
   lcd.setCursor(0, 0);
   lcd.print("T:" + String(temp,1) + "oC "); lcd.print("H:" + String(hum,0) + "%");
-
   lcd.setCursor(0, 1);
   lcd.print("L:" + String(lichtWert) + "lx");lcd.print(" Z:" + (restMinuten > 0 ? String(restMinuten) + "min" : "Ende "));
 
